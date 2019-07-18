@@ -35,7 +35,7 @@ public class IV {
 
 	public static void imshow(Image... imgs) {
 		for (Image img : imgs) {
-			APP.addImage(img.toString(), img);
+			APP.addImage(U.generateWindowName(), img);
 		}
 	}
 

@@ -13,6 +13,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class APP extends Application {
@@ -42,6 +44,21 @@ public class APP extends Application {
 					window.setScene(scene);
 //					window.setResizable(false);
 					window.show();
+					window.addEventHandler(KeyEvent.KEY_PRESSED, (e) -> {
+						if (e.getCode() == KeyCode.ESCAPE) {
+//							window.close();
+							Platform.runLater(() -> {
+								if (Platform.isFxApplicationThread())
+									Platform.exit();
+//								not ok
+//								try {
+//									this.stop();
+//								} catch (Exception ex) {
+//									ex.printStackTrace();
+//								}
+							});
+						}
+					});
 					windows.put(name, window);
 				});
 			}).start();
