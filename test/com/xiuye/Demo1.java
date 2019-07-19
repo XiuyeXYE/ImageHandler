@@ -35,12 +35,12 @@ public class Demo1 {
 //		}).start();
 
 //		latch.await();
-//		Application.launch(Window.class, "ABC", "123456","--KEY=VALUE");
+		Application.launch(Window.class, "ABC", "123456","--KEY=VALUE");
 //		Canvas c = new Canvas();
 //		c.getGraphicsContext2D();
-		Image i = U.toImage("pic/I1.jpg");
-		WritableImage wi = U.toImage(i);
-		i.getPixelReader();
+//		Image i = U.toImage("pic/I1.jpg");
+//		WritableImage wi = U.toImage(i);
+//		i.getPixelReader();
 		
 //		Image img = new Image();
 //		Canvas c = new Canvas();
