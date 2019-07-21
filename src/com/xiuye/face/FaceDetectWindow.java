@@ -49,10 +49,10 @@ public class FaceDetectWindow extends Application {
 		ToolBar tb = new ToolBar(btn);
 
 		TextArea info = new TextArea();
-		
-		ScrollPane scrollPaneImg = new ScrollPane(iv); 
-//		ScrollPane scrollPaneImg = new ScrollPane(); 
-		
+
+		ScrollPane scrollPaneImg = new ScrollPane(iv);
+//		ScrollPane scrollPaneImg = new ScrollPane();
+
 		SplitPane sp = new SplitPane();
 		sp.getItems().addAll(scrollPaneImg, info);
 		sp.setDividerPositions(0.5, 0.5);

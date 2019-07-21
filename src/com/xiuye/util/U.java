@@ -57,10 +57,10 @@ public class U {
 	public static Image rect(WritableImage wi, Color c, int x, int y, int width, int height, int borderWidth) {
 		PixelWriter pw = wi.getPixelWriter();
 		borderWidth = borderWidth - 1;
-		int left = x - borderWidth;
-		int right = x + width + borderWidth;
-		int top = y - borderWidth;
-		int bottom = y + height + borderWidth;
+		int left = Math.max(x - borderWidth, 0);
+		int right = Math.min(x + width + borderWidth, (int) wi.getWidth()-1);
+		int top = Math.max(y - borderWidth, 0);
+		int bottom = Math.min(y + height + borderWidth, (int) wi.getHeight()-1);
 		for (int i = left; i <= right; i++) {
 			for (int j = top; j <= y; j++) {
 				pw.setColor(i, j, c);
@@ -68,19 +68,19 @@ public class U {
 		}
 
 		for (int i = left; i <= right; i++) {
-			for (int j = bottom; j >= y + height; j--) {
+			for (int j = bottom; j >= Math.min(y + height, wi.getHeight()-1); j--) {
 				pw.setColor(i, j, c);
 			}
 		}
 
 		for (int i = left; i <= x; i++) {
-			for (int j = y; j <= y + height; j++) {
+			for (int j = y; j <= Math.min(y + height, wi.getHeight()-1); j++) {
 				pw.setColor(i, j, c);
 			}
 		}
 
 		for (int i = right; i >= x + width; i--) {
-			for (int j = y; j <= y + height; j++) {
+			for (int j = y; j <= Math.min(y + height, wi.getHeight()-1); j++) {
 				pw.setColor(i, j, c);
 			}
 		}
@@ -171,6 +171,5 @@ public class U {
 	public static String generateWindowName() {
 		return PREFIX_WINDOW + SUFFIX_WINDOW++;
 	}
-
 
 }
