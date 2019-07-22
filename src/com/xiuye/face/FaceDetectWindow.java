@@ -4,7 +4,6 @@ import java.io.File;
 
 import com.xiuye.util.OpW;
 import com.xiuye.util.U;
-import com.xiuye.util.UI;
 
 import javafx.application.Application;
 import javafx.beans.property.SimpleObjectProperty;
