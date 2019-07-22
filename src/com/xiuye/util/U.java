@@ -12,6 +12,7 @@ import java.util.concurrent.Executors;
 import com.xiuye.bean.Mat;
 import com.xiuye.bean.MatInfo;
 
+import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
@@ -24,11 +25,16 @@ public class U {
 	public static void threadStart(Runnable r) {
 		pool.execute(r);
 	}
-	
+
 	public static void shutdownThreadPool() {
-		if(!pool.isShutdown()) {
+		if (!pool.isShutdown()) {
 			pool.shutdown();
 		}
+	}
+
+	public static void runApplication(Class<? extends Application> cls, String... args) {
+		Application.launch(cls, args);
+		shutdownThreadPool();
 	}
 
 	public static <K, V> Map<K, V> map() {
