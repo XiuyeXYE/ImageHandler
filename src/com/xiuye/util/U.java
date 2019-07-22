@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import com.xiuye.bean.Mat;
 import com.xiuye.bean.MatInfo;
@@ -16,6 +18,18 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 
 public class U {
+
+	private static final ExecutorService pool = Executors.newFixedThreadPool(10);
+
+	public static void threadStart(Runnable r) {
+		pool.execute(r);
+	}
+	
+	public static void shutdownThreadPool() {
+		if(!pool.isShutdown()) {
+			pool.shutdown();
+		}
+	}
 
 	public static <K, V> Map<K, V> map() {
 		return new HashMap<K, V>();
@@ -58,9 +72,9 @@ public class U {
 		PixelWriter pw = wi.getPixelWriter();
 		borderWidth = borderWidth - 1;
 		int left = Math.max(x - borderWidth, 0);
-		int right = Math.min(x + width + borderWidth, (int) wi.getWidth()-1);
+		int right = Math.min(x + width + borderWidth, (int) wi.getWidth() - 1);
 		int top = Math.max(y - borderWidth, 0);
-		int bottom = Math.min(y + height + borderWidth, (int) wi.getHeight()-1);
+		int bottom = Math.min(y + height + borderWidth, (int) wi.getHeight() - 1);
 		for (int i = left; i <= right; i++) {
 			for (int j = top; j <= y; j++) {
 				pw.setColor(i, j, c);
@@ -68,19 +82,19 @@ public class U {
 		}
 
 		for (int i = left; i <= right; i++) {
-			for (int j = bottom; j >= Math.min(y + height, wi.getHeight()-1); j--) {
+			for (int j = bottom; j >= Math.min(y + height, wi.getHeight() - 1); j--) {
 				pw.setColor(i, j, c);
 			}
 		}
 
 		for (int i = left; i <= x; i++) {
-			for (int j = y; j <= Math.min(y + height, wi.getHeight()-1); j++) {
+			for (int j = y; j <= Math.min(y + height, wi.getHeight() - 1); j++) {
 				pw.setColor(i, j, c);
 			}
 		}
 
 		for (int i = right; i >= x + width; i--) {
-			for (int j = y; j <= Math.min(y + height, wi.getHeight()-1); j++) {
+			for (int j = y; j <= Math.min(y + height, wi.getHeight() - 1); j++) {
 				pw.setColor(i, j, c);
 			}
 		}
