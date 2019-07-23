@@ -31,11 +31,11 @@ public class FxmlWindow extends Application {
 	}
 
 	public static void running(String title, URL fxml) {
-		U.runApplication(FxmlWindow.class, "--title=" + title, "--fxml=" + FxmlWindow.class.getResource("app.fxml"));
+		U.runApplication(FxmlWindow.class, "--title=" + title, "--fxml=" + fxml);
 	}
 
 	public static void running(URL fxml) {
-		U.runApplication(FxmlWindow.class, "--fxml=" + FxmlWindow.class.getResource("app.fxml"));
+		U.runApplication(FxmlWindow.class, "--fxml=" + fxml);
 	}
 
 //	public static void main(String[] args) {
