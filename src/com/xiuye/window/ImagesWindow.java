@@ -17,7 +17,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class APP extends Application {
+public class ImagesWindow extends Application {
 
 	private static Map<String, Image> images = Collections.synchronizedMap(U.map());
 

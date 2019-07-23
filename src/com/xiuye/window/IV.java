@@ -17,30 +17,31 @@ public class IV {
 
 	public static void imshow(MatInfo... mats) {
 		for (MatInfo mi : mats) {
-			APP.addImage(mi.getWindowName(), mi.getMat());
+			ImagesWindow.addImage(mi.getWindowName(), mi.getMat());
 		}
 	}
 
 	public static void imshow(Mat... mats) {
 		for (Mat mat : mats) {
-			APP.addImage(U.generateWindowName(), mat.getImg());
+			ImagesWindow.addImage(U.generateWindowName(), mat.getImg());
 		}
 	}
 
 	public static void imshow(String... urls) {
 		for (String url : urls) {
-			APP.addImage(url, U.toImage(url));
+			ImagesWindow.addImage(url, U.toImage(url));
 		}
 	}
 
 	public static void imshow(Image... imgs) {
 		for (Image img : imgs) {
-			APP.addImage(U.generateWindowName(), img);
+			ImagesWindow.addImage(U.generateWindowName(), img);
 		}
 	}
 
 	public static void waitKey(String...args) {
-		Application.launch(APP.class,args);
+//		Application.launch(APP.class,args);
+		U.runApplication(ImagesWindow.class, args);
 	}
 
 }

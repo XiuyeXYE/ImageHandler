@@ -5,9 +5,13 @@ import javafx.application.Platform;
 public class UI {
 
 	public static void threadStart(Runnable r) {
-		U.threadStart(()->{
-			Platform.runLater(r);
+		U.threadStart(() -> {
+			runLater(r);
 		});
 	}
-	
+
+	public static void runLater(Runnable r) {
+		Platform.runLater(r);
+	}
+
 }
