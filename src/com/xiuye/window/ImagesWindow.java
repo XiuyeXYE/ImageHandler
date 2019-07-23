@@ -33,10 +33,8 @@ public class ImagesWindow extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-//		System.out.println(images.size());
 		EventHandler<KeyEvent> eh = (e) -> {
 			if (e.getCode() == KeyCode.ESCAPE) {
-//					window.close();
 				Platform.runLater(() -> {
 					if (Platform.isFxApplicationThread())
 						Platform.exit();

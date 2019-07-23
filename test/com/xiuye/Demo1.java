@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 
 import com.sun.javafx.tk.Toolkit;
 import com.xiuye.util.U;
-import com.xiuye.window.Window;
+import com.xiuye.window.FxmlWindow;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -35,7 +35,7 @@ public class Demo1 {
 //		}).start();
 
 //		latch.await();
-		Application.launch(Window.class, "ABC", "123456","--KEY=VALUE");
+		Application.launch(FxmlWindow.class, "ABC", "123456","--KEY=VALUE");
 //		Canvas c = new Canvas();
 //		c.getGraphicsContext2D();
 //		Image i = U.toImage("pic/I1.jpg");
