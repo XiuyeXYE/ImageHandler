@@ -1,29 +1,32 @@
 package com.xiuye.window;
 
-import java.util.List;
 
 import com.xiuye.bean.Mat;
-import com.xiuye.bean.MatInfo;
 import com.xiuye.util.U;
+import com.xiuye.util.UI;
 
-import javafx.application.Application;
 import javafx.scene.image.Image;
 
 public class IV {
 
-	public static void imshow(List<MatInfo> mats) {
-		imshow(mats.toArray(new MatInfo[mats.size()]));
+	private static String windowName = "XY Image Show";
+	
+	public static void windowName(String winNm) {
+		windowName = winNm;
 	}
 
-	public static void imshow(MatInfo... mats) {
-		for (MatInfo mi : mats) {
-			ImagesWindow.addImage(mi.getWindowName(), mi.getMat());
-		}
+	public static void imshow(Image img) {
+		ImagesWindow.addImage(windowName, img);
 	}
-
+	
+	public static void imshow(Mat mat) {
+		ImagesWindow.addImage(windowName, mat.getImg());
+	}
+	
+	
 	public static void imshow(Mat... mats) {
 		for (Mat mat : mats) {
-			ImagesWindow.addImage(U.generateWindowName(), mat.getImg());
+			ImagesWindow.addImage(UI.generateWindowName(), mat.getImg());
 		}
 	}
 
@@ -35,12 +38,11 @@ public class IV {
 
 	public static void imshow(Image... imgs) {
 		for (Image img : imgs) {
-			ImagesWindow.addImage(U.generateWindowName(), img);
+			ImagesWindow.addImage(UI.generateWindowName(), img);
 		}
 	}
 
 	public static void waitKey(String...args) {
-//		Application.launch(APP.class,args);
 		U.runApplication(ImagesWindow.class, args);
 	}
 

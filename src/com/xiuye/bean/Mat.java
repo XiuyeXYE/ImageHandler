@@ -2,20 +2,24 @@ package com.xiuye.bean;
 
 
 import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
 
 public class Mat {
 
-	private Image img;
+	private WritableImage img;
 
-
-	public Image getImg() {
+	public WritableImage getImg() {
 		return img;
 	}
 
-	public void setImg(Image img) {
+	public void setImg(WritableImage img) {
 		this.img = img;
 	}
 
+	public Image readOnlyImg() {
+		return this.img;
+	}
+	
 	@Override
 	public String toString() {
 		return "Mat [img=" + img + "]";
