@@ -12,6 +12,7 @@ public class WindowService extends Service<Object>{
 		return new Task<Object>() {
 			@Override
 			protected Object call() throws Exception {
+				System.out.println(123);
 				return null;
 			}
 		};
